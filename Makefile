@@ -17,6 +17,9 @@ simulate: clean analyze
 	  --vcd=$(WORKDIR)/$(ARCHNAME).vcd --stop-time=$(STOPTIME)
 	$(SIM) $(WORKDIR)/$(ARCHNAME).vcd
 
+deploy: impl/simple_vga.runs/impl_1/mega65_r6.bit
+	m65 -q $<
+
 clean:
 	@echo "cleaning design..."
 	ghdl --remove --workdir=$(WORKDIR)

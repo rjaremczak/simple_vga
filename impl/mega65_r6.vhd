@@ -37,15 +37,15 @@ entity mega65_r6 is
         vga_blank_n_o : out std_logic;
         vga_psave_n_o : out std_logic;
 
-        hdmi_tmds_data_p_o     : out std_logic_vector(2 downto 0);
-        hdmi_tmds_data_n_o     : out std_logic_vector(2 downto 0);
-        hdmi_tmds_data_clk_p_o : out std_logic;
-        hdmi_tmds_data_clk_n_o : out std_logic;
-        hdmi_hiz_en_o          : out std_logic;
-        hdmi_ls_oe_n_o         : out std_logic;
-        hdmi_hpd_i             : in std_logic;
-        hdmi_scl_io            : inout std_logic;
-        hdmi_sda_io            : inout std_logic;
+--        hdmi_tmds_data_p_o     : out std_logic_vector(2 downto 0);
+--        hdmi_tmds_data_n_o     : out std_logic_vector(2 downto 0);
+--        hdmi_tmds_data_clk_p_o : out std_logic;
+--        hdmi_tmds_data_clk_n_o : out std_logic;
+--        hdmi_hiz_en_o          : out std_logic;
+--        hdmi_ls_oe_n_o         : out std_logic;
+--        hdmi_hpd_i             : in std_logic;
+--        hdmi_scl_io            : inout std_logic;
+--        hdmi_sda_io            : inout std_logic;
 
         kb_io0_o    : out std_logic;
         kb_io1_o    : out std_logic;

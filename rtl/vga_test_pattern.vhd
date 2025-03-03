@@ -36,6 +36,9 @@ begin
         variable visible_y : boolean := false;
         variable video_x   : unsigned(9 downto 0);
         variable video_y   : unsigned(9 downto 0);
+        variable red       : std_logic_vector(7 downto 0);
+        variable green     : std_logic_vector(7 downto 0);
+        variable blue      : std_logic_vector(7 downto 0);
     begin
 
         if rising_edge(pixel_clk_i) then
@@ -57,7 +60,11 @@ begin
             vga_hsync <= not VM_H_POL when video_x < VM_H_SYNC_FIRST or video_x > VM_H_SYNC_LAST else VM_H_POL;
             vga_vsync <= not VM_V_POL when video_y < VM_V_SYNC_FIRST or video_y > VM_V_SYNC_LAST else VM_V_POL;
             vga_blank <= '0' when visible_x or visible_y else '1';
-            vga_rgb   <= std_logic_vector(video_x(7 downto 0) & video_y(7 downto 0) & X"00") when vga_blank = '0' else X"000000";
+            
+            red     := std_logic_vector(video_x(6 downto 2) & "000");
+            green   := std_logic_vector(video_y(4 downto 0) & "000");
+            blue    := not std_logic_vector(video_y(4 downto 0) & "000");
+            vga_rgb <= (red & green & blue) when vga_blank = '0' else X"000000";
             
             if reset_i = '1' then
                 visible_x := false;
