@@ -1,0 +1,10 @@
+*.cf
+*.cache
+*.runs
+*.sim
+*.srcs
+*.ip_user_files
+*.hw
+
+build
+bin
